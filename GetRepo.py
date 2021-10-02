@@ -3,8 +3,10 @@ import json, requests
 base = 'https://api.github.com/'
 token = 'TOKEN HERE'
 
+'''
 params = {"state": "open",}
 headers = {'Authorization': f'token {token}'}
+'''
 
 '''
 Add to base:
