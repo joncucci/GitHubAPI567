@@ -16,7 +16,7 @@ class TestGetRepo(unittest.TestCase):
 
    'GEDCOM_database': 3,
 
-    'GitHubAPI567': 4,
+    'GitHubAPI567': 6,
 
    'HW3_345': 3,
 
