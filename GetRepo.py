@@ -25,7 +25,9 @@ def get_repos(id):
     # info = requests.get(base + 'users/{}/repos?page=1&per_page=1000'.format(id), headers=headers, params=params).json()
 
     # If not
-    info = requests.get(base + 'users/{}/repos?page=1&per_page=1000'.format(id)).json()
+    info = requests.get(base + 'users/{}/repos?page=1&per_page=1000'.format(id))
+    if type(info) not in [dict, list, tuple]:
+        info = info.json()
 
     for repo in info:
 
@@ -33,8 +35,11 @@ def get_repos(id):
         # commits = requests.get(base + 'repos/{}/{}/commits?page=1&per_page=1000'.format(id, repo['name']), headers=headers, params=params).json()
 
         # If not
-        commits = requests.get(base + 'repos/{}/{}/commits?page=1&per_page=1000'.format(id, repo['name'])).json()
+        # print(repo)
+        commits = requests.get(base + 'repos/{}/{}/commits?page=1&per_page=1000'.format(id, repo['name']))
 
+        if type(commits) not in [dict, list, tuple]:
+                commits = commits.json()
         output[repo['name']] = len(commits)
 
         print('Repo: {} Number of commits: {}'.format(repo['name'], len(commits)))
