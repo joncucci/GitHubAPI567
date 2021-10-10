@@ -2593,14 +2593,14 @@ class TestGetRepo(unittest.TestCase):
                     }
 
                 ]
-
+    '''
     def return_expected(expected):
         return 
     @mock.patch('requests.get', side_effect = [expected1, return_expected(expected_repos)])
     def testValidRepoReturn(self, mockedReq):
         # mockedReq.side_effect = [expected1, None]
         self.assertEqual(len(get_repos('joncucci')), 25, 'Wrong repo and commit combination.')
-
+    '''
     global expected2
     expected2 = {
     "message": "Not Found",
